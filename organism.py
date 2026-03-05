@@ -1,216 +1,117 @@
-import os
+# organism.py
+# Ultra Sharp Neon Evolution Engine
+# GitHub Actions friendly (no terminal needed)
+
+import numpy as np
+from PIL import Image
 import random
-import math
-from PIL import Image, ImageDraw, ImageFilter
+import os
+import json
 
-SIZE = 2048
-CENTER = SIZE // 2
+WIDTH = 2048
+HEIGHT = 2048
+
+HISTORY_FILE = "history.json"
+ART_DIR = "art"
+
+os.makedirs(ART_DIR, exist_ok=True)
 
 
-def palette(seed):
+def get_generation():
+    if not os.path.exists(HISTORY_FILE):
+        history = {"generation": 0}
+    else:
+        with open(HISTORY_FILE) as f:
+            history = json.load(f)
+
+    history["generation"] += 1
+
+    with open(HISTORY_FILE, "w") as f:
+        json.dump(history, f, indent=2)
+
+    return history["generation"]
+
+
+def normalize(v):
+    return (v - v.min()) / (v.max() - v.min() + 1e-9)
+
+
+def neon_palette(v):
+
+    r = np.sin(v * 6.28) * 0.5 + 0.5
+    g = np.sin(v * 6.28 + 2.1) * 0.5 + 0.5
+    b = np.sin(v * 6.28 + 4.2) * 0.5 + 0.5
+
+    rgb = np.stack([r, g, b], axis=-1)
+    rgb = np.power(rgb, 0.6)
+
+    return (rgb * 255).astype(np.uint8)
+
+
+def fractal_field(x, y):
+
+    value = np.zeros_like(x)
+
+    freq = 1.0
+    amp = 1.0
+
+    for _ in range(5):
+        value += amp * np.sin(x * freq + np.cos(y * freq))
+        value += amp * np.cos(y * freq + np.sin(x * freq))
+
+        freq *= 1.9
+        amp *= 0.5
+
+    return value
+
+
+def crystal_field(x, y):
+
+    r = np.sqrt(x*x + y*y)
+    a = np.arctan2(y, x)
+
+    spikes = np.sin(a * 12)
+    radial = np.cos(r * 10)
+
+    return spikes * radial
+
+
+def generate_image(seed):
 
     random.seed(seed)
+    np.random.seed(seed)
 
-    palettes = [
+    xs = np.linspace(-2, 2, WIDTH)
+    ys = np.linspace(-2, 2, HEIGHT)
 
-        [(0,255,255),(0,180,255),(0,120,255)],
-        [(255,0,200),(255,80,255),(255,0,120)],
-        [(0,255,120),(120,255,180),(0,255,200)],
-        [(255,120,0),(255,200,0),(255,80,40)],
-        [(120,0,255),(200,120,255),(160,80,255)]
+    x, y = np.meshgrid(xs, ys)
 
-    ]
+    field1 = fractal_field(x, y)
+    field2 = crystal_field(x, y)
 
-    return random.choice(palettes)
+    combined = normalize(field1 + field2)
 
+    rgb = neon_palette(combined)
 
-def radial(angle, r):
-
-    x = CENTER + math.cos(angle) * r
-    y = CENTER + math.sin(angle) * r
-
-    return (x, y)
-
-
-def background(draw):
-
-    for i in range(1200):
-
-        x = random.randint(0, SIZE)
-        y = random.randint(0, SIZE)
-
-        g = random.randint(10,30)
-
-        draw.point((x,y),(g,g,g))
-
-
-def energyfield(img, colors):
-
-    glow = Image.new("RGB",(SIZE,SIZE),(0,0,0))
-    draw = ImageDraw.Draw(glow)
-
-    for i in range(200):
-
-        x = random.randint(0,SIZE)
-        y = random.randint(0,SIZE)
-
-        r = random.randint(40,200)
-
-        draw.ellipse(
-            (x-r,y-r,x+r,y+r),
-            fill=random.choice(colors)
-        )
-
-    glow = glow.filter(ImageFilter.GaussianBlur(120))
-
-    return Image.blend(img, glow, 0.35)
-
-
-def fractalbranches(draw, dna, colors):
-
-    arms = max(4, dna["symmetry"] * 3)
-
-    steps = dna["complexity"] // 2
-
-    entropy = dna["entropy"] / 100
-
-    for a in range(arms):
-
-        angle = (math.pi*2/arms)*a
-
-        x,y = CENTER,CENTER
-
-        radius = 10
-
-        for i in range(steps):
-
-            radius += random.uniform(10,40)
-
-            angle += random.uniform(-entropy, entropy)
-
-            nx,ny = radial(angle,radius)
-
-            color = random.choice(colors)
-
-            w = random.randint(2,6)
-
-            draw.line((x,y,nx,ny),fill=color,width=w)
-
-            if random.random() < 0.25:
-
-                r = random.randint(6,16)
-
-                draw.ellipse(
-                    (nx-r,ny-r,nx+r,ny+r),
-                    fill=color
-                )
-
-            x,y = nx,ny
-
-
-def liquidmetal(draw, dna):
-
-    rings = dna["symmetry"] * 4
-
-    for i in range(rings):
-
-        r = random.randint(200,900)
-
-        shade = random.randint(140,220)
-
-        color = (shade,shade,shade)
-
-        w = random.randint(2,8)
-
-        draw.ellipse(
-            (CENTER-r,CENTER-r,CENTER+r,CENTER+r),
-            outline=color,
-            width=w
-        )
-
-
-def plasmablobs(draw, dna, colors):
-
-    blobs = dna["complexity"]
-
-    for i in range(blobs):
-
-        angle = random.random()*math.pi*2
-
-        dist = random.uniform(0,SIZE*0.35)
-
-        x,y = radial(angle,dist)
-
-        r = random.randint(60,220)
-
-        draw.ellipse(
-            (x-r,y-r,x+r,y+r),
-            fill=random.choice(colors)
-        )
-
-
-def particles(draw, colors):
-
-    for i in range(2000):
-
-        x = random.randint(0,SIZE)
-        y = random.randint(0,SIZE)
-
-        draw.point((x,y), random.choice(colors))
-
-
-def liquiddistort(img, dna):
-
-    px = img.load()
-
-    strength = dna["entropy"] // 3
-
-    for i in range(50000):
-
-        x = random.randint(1,SIZE-2)
-        y = random.randint(1,SIZE-2)
-
-        dx = random.randint(-strength,strength)
-        dy = random.randint(-strength,strength)
-
-        try:
-            px[x,y] = px[x+dx,y+dy]
-        except:
-            pass
+    img = Image.fromarray(rgb)
 
     return img
 
 
-def render(dna, token):
+def main():
 
-    img = Image.new("RGB",(SIZE,SIZE),(6,6,12))
+    generation = get_generation()
 
-    draw = ImageDraw.Draw(img)
+    seed = random.randint(0, 999999)
 
-    colors = palette(dna["colorseed"])
+    img = generate_image(seed)
 
-    background(draw)
+    path = f"{ART_DIR}/{generation}.png"
 
-    plasmablobs(draw, dna, colors)
+    img.save(path, "PNG")
 
-    fractalbranches(draw, dna, colors)
+    print("generated", path)
 
-    liquidmetal(draw, dna)
 
-    particles(draw, colors)
-
-    img = img.filter(ImageFilter.GaussianBlur(20))
-
-    img = energyfield(img, colors)
-
-    img = liquiddistort(img, dna)
-
-    img = img.filter(ImageFilter.SMOOTH_MORE)
-
-    os.makedirs("art",exist_ok=True)
-
-    path = f"art/{token}.png"
-
-    img.save(path,dpi=(300,300))
-
-    return path
+if __name__ == "__main__":
+    main()
