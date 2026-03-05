@@ -135,6 +135,66 @@
     "metadata": "metadata/3.json"
   },
   {
+    "id": 12,
+    "generation": 3,
+    "fitness": 144,
+    "dna": {
+      "shape": 2,
+      "pattern": 1,
+      "complexity": 98,
+      "symmetry": 4,
+      "colorseed": 416538,
+      "entropy": 23
+    },
+    "image": "art/12.png",
+    "metadata": "metadata/12.json"
+  },
+  {
+    "id": 13,
+    "generation": 3,
+    "fitness": 141,
+    "dna": {
+      "shape": 2,
+      "pattern": 1,
+      "complexity": 98,
+      "symmetry": 4,
+      "colorseed": 416538,
+      "entropy": 23
+    },
+    "image": "art/13.png",
+    "metadata": "metadata/13.json"
+  },
+  {
+    "id": 14,
+    "generation": 3,
+    "fitness": 141,
+    "dna": {
+      "shape": 2,
+      "pattern": 1,
+      "complexity": 98,
+      "symmetry": 4,
+      "colorseed": 416538,
+      "entropy": 23
+    },
+    "image": "art/14.png",
+    "metadata": "metadata/14.json"
+  },
+  {
+    "id": 15,
+    "generation": 3,
+    "fitness": 141,
+    "dna": {
+      "shape": 2,
+      "pattern": 1,
+      "complexity": 98,
+      "symmetry": 4,
+      "colorseed": 416538,
+      "entropy": 23
+    },
+    "image": "art/15.png",
+    "metadata": "metadata/15.json"
+  },
+  {
     "id": 4,
     "generation": 1,
     "fitness": 131,
@@ -148,5 +208,20 @@
     },
     "image": "art/4.png",
     "metadata": "metadata/4.json"
+  },
+  {
+    "id": 11,
+    "generation": 3,
+    "fitness": 127,
+    "dna": {
+      "shape": 2,
+      "pattern": 1,
+      "complexity": 98,
+      "symmetry": 1,
+      "colorseed": 416538,
+      "entropy": 23
+    },
+    "image": "art/11.png",
+    "metadata": "metadata/11.json"
   }
 ]
