@@ -1,5 +1,71 @@
 {
- "generation": 0,
- "supply": 0,
- "organisms": []
+  "generation": 1,
+  "supply": 5,
+  "organisms": [
+    {
+      "id": 5,
+      "generation": 1,
+      "dna": {
+        "shape": 3,
+        "pattern": 4,
+        "complexity": 98,
+        "symmetry": 1,
+        "colorseed": 769938,
+        "entropy": 75
+      },
+      "fitness": 196
+    },
+    {
+      "id": 1,
+      "generation": 1,
+      "dna": {
+        "shape": 0,
+        "pattern": 4,
+        "complexity": 93,
+        "symmetry": 5,
+        "colorseed": 736558,
+        "entropy": 69
+      },
+      "fitness": 195
+    },
+    {
+      "id": 2,
+      "generation": 1,
+      "dna": {
+        "shape": 2,
+        "pattern": 1,
+        "complexity": 98,
+        "symmetry": 4,
+        "colorseed": 416538,
+        "entropy": 23
+      },
+      "fitness": 152
+    },
+    {
+      "id": 3,
+      "generation": 1,
+      "dna": {
+        "shape": 1,
+        "pattern": 3,
+        "complexity": 30,
+        "symmetry": 3,
+        "colorseed": 458614,
+        "entropy": 100
+      },
+      "fitness": 152
+    },
+    {
+      "id": 4,
+      "generation": 1,
+      "dna": {
+        "shape": 3,
+        "pattern": 3,
+        "complexity": 52,
+        "symmetry": 4,
+        "colorseed": 689820,
+        "entropy": 54
+      },
+      "fitness": 131
+    }
+  ]
 }
