@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -19,19 +20,23 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Dependencies
+      - name: Install deps
         run: |
           pip install numpy pillow
 
-      - name: Run Organism Engine
+      - name: Run evolution
         run: |
           python organism.py
 
-      - name: Commit Generated Output
+      - name: Commit art
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-          git add outputs/*.png || true
-          git commit -m "auto evolve organism" || echo "nothing to commit"
+          git add art/*.png
+          git add history.json
+
+          git commit -m "auto evolution generation" || echo "nothing to commit"
+
+          git pull --rebase
           git push
