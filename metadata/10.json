@@ -1,0 +1,37 @@
+{
+  "name": "Organism 10",
+  "description": "Autonomous evolving organism",
+  "image": "art/10.png",
+  "dna": {
+    "shape": 3,
+    "pattern": 4,
+    "complexity": 98,
+    "symmetry": 1,
+    "colorseed": 769938,
+    "entropy": 75
+  },
+  "generation": 2,
+  "rarity": 0.3102494701169918,
+  "attributes": [
+    {
+      "trait_type": "shape",
+      "value": 3
+    },
+    {
+      "trait_type": "pattern",
+      "value": 4
+    },
+    {
+      "trait_type": "complexity",
+      "value": 98
+    },
+    {
+      "trait_type": "symmetry",
+      "value": 1
+    },
+    {
+      "trait_type": "entropy",
+      "value": 75
+    }
+  ]
+}

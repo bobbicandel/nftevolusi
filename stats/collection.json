@@ -30,6 +30,81 @@
     "metadata": "metadata/1.json"
   },
   {
+    "id": 9,
+    "generation": 2,
+    "fitness": 195,
+    "dna": {
+      "shape": 3,
+      "pattern": 4,
+      "complexity": 98,
+      "symmetry": 1,
+      "colorseed": 769938,
+      "entropy": 75
+    },
+    "image": "art/9.png",
+    "metadata": "metadata/9.json"
+  },
+  {
+    "id": 8,
+    "generation": 2,
+    "fitness": 187,
+    "dna": {
+      "shape": 0,
+      "pattern": 4,
+      "complexity": 93,
+      "symmetry": 5,
+      "colorseed": 736558,
+      "entropy": 69
+    },
+    "image": "art/8.png",
+    "metadata": "metadata/8.json"
+  },
+  {
+    "id": 10,
+    "generation": 2,
+    "fitness": 178,
+    "dna": {
+      "shape": 3,
+      "pattern": 4,
+      "complexity": 98,
+      "symmetry": 1,
+      "colorseed": 769938,
+      "entropy": 75
+    },
+    "image": "art/10.png",
+    "metadata": "metadata/10.json"
+  },
+  {
+    "id": 6,
+    "generation": 2,
+    "fitness": 164,
+    "dna": {
+      "shape": 1,
+      "pattern": 3,
+      "complexity": 30,
+      "symmetry": 3,
+      "colorseed": 458614,
+      "entropy": 100
+    },
+    "image": "art/6.png",
+    "metadata": "metadata/6.json"
+  },
+  {
+    "id": 7,
+    "generation": 2,
+    "fitness": 154,
+    "dna": {
+      "shape": 2,
+      "pattern": 1,
+      "complexity": 98,
+      "symmetry": 4,
+      "colorseed": 416538,
+      "entropy": 23
+    },
+    "image": "art/7.png",
+    "metadata": "metadata/7.json"
+  },
+  {
     "id": 2,
     "generation": 1,
     "fitness": 152,

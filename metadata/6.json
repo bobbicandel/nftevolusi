@@ -1,0 +1,37 @@
+{
+  "name": "Organism 6",
+  "description": "Autonomous evolving organism",
+  "image": "art/6.png",
+  "dna": {
+    "shape": 1,
+    "pattern": 3,
+    "complexity": 30,
+    "symmetry": 3,
+    "colorseed": 458614,
+    "entropy": 100
+  },
+  "generation": 2,
+  "rarity": 0.9023902255784355,
+  "attributes": [
+    {
+      "trait_type": "shape",
+      "value": 1
+    },
+    {
+      "trait_type": "pattern",
+      "value": 3
+    },
+    {
+      "trait_type": "complexity",
+      "value": 30
+    },
+    {
+      "trait_type": "symmetry",
+      "value": 3
+    },
+    {
+      "trait_type": "entropy",
+      "value": 100
+    }
+  ]
+}

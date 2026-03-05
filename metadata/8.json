@@ -1,0 +1,37 @@
+{
+  "name": "Organism 8",
+  "description": "Autonomous evolving organism",
+  "image": "art/8.png",
+  "dna": {
+    "shape": 0,
+    "pattern": 4,
+    "complexity": 93,
+    "symmetry": 5,
+    "colorseed": 736558,
+    "entropy": 69
+  },
+  "generation": 2,
+  "rarity": 0.6593034167121559,
+  "attributes": [
+    {
+      "trait_type": "shape",
+      "value": 0
+    },
+    {
+      "trait_type": "pattern",
+      "value": 4
+    },
+    {
+      "trait_type": "complexity",
+      "value": 93
+    },
+    {
+      "trait_type": "symmetry",
+      "value": 5
+    },
+    {
+      "trait_type": "entropy",
+      "value": 69
+    }
+  ]
+}
