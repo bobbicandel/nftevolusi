@@ -1,0 +1,37 @@
+{
+  "name": "Organism 17",
+  "description": "Autonomous evolving organism",
+  "image": "art/17.png",
+  "dna": {
+    "shape": 2,
+    "pattern": 1,
+    "complexity": 98,
+    "symmetry": 4,
+    "colorseed": 416538,
+    "entropy": 23
+  },
+  "generation": 4,
+  "rarity": 0.3081868148697725,
+  "attributes": [
+    {
+      "trait_type": "shape",
+      "value": 2
+    },
+    {
+      "trait_type": "pattern",
+      "value": 1
+    },
+    {
+      "trait_type": "complexity",
+      "value": 98
+    },
+    {
+      "trait_type": "symmetry",
+      "value": 4
+    },
+    {
+      "trait_type": "entropy",
+      "value": 23
+    }
+  ]
+}

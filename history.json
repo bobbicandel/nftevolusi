@@ -1,6 +1,6 @@
 {
-  "generation": 3,
-  "supply": 15,
+  "generation": 4,
+  "supply": 20,
   "organisms": [
     {
       "id": 5,
@@ -81,6 +81,58 @@
       "fitness": 164
     },
     {
+      "id": 17,
+      "generation": 4,
+      "dna": {
+        "shape": 2,
+        "pattern": 1,
+        "complexity": 98,
+        "symmetry": 4,
+        "colorseed": 416538,
+        "entropy": 23
+      },
+      "fitness": 156
+    },
+    {
+      "id": 18,
+      "generation": 4,
+      "dna": {
+        "shape": 2,
+        "pattern": 1,
+        "complexity": 98,
+        "symmetry": 4,
+        "colorseed": 416538,
+        "entropy": 23
+      },
+      "fitness": 156
+    },
+    {
+      "id": 19,
+      "generation": 4,
+      "dna": {
+        "shape": 2,
+        "pattern": 1,
+        "complexity": 98,
+        "symmetry": 4,
+        "colorseed": 416538,
+        "entropy": 23
+      },
+      "fitness": 156
+    },
+    {
+      "id": 20,
+      "generation": 4,
+      "dna": {
+        "shape": 2,
+        "pattern": 1,
+        "complexity": 98,
+        "symmetry": 4,
+        "colorseed": 416538,
+        "entropy": 23
+      },
+      "fitness": 156
+    },
+    {
       "id": 7,
       "generation": 2,
       "dna": {
@@ -131,6 +183,19 @@
         "entropy": 23
       },
       "fitness": 144
+    },
+    {
+      "id": 16,
+      "generation": 4,
+      "dna": {
+        "shape": 2,
+        "pattern": 1,
+        "complexity": 98,
+        "symmetry": 4,
+        "colorseed": 416538,
+        "entropy": 23
+      },
+      "fitness": 143
     },
     {
       "id": 13,

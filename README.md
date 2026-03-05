@@ -14,6 +14,14 @@
 
 ![6](art/6.png)
 
+![17](art/17.png)
+
+![18](art/18.png)
+
+![19](art/19.png)
+
+![20](art/20.png)
+
 ![7](art/7.png)
 
 ![2](art/2.png)
@@ -21,6 +29,8 @@
 ![3](art/3.png)
 
 ![12](art/12.png)
+
+![16](art/16.png)
 
 ![13](art/13.png)
 
